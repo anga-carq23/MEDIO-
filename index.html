@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylo's</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f7f7f7;
+        }
+
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .carousel {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .services {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .services h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .services .section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .services .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .services .card:hover {
+            transform: scale(1.05);
+        }
+
+        .services .card h3 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .services .card p {
+            color: #555;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="LOGO'S.png" alt="Stylo's Logo">
+        <h1>Stylo's</h1>
+    </header>
+
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="estetica.png" alt="Imagen 1">
+            <img src="aleman.png" alt="Imagen 2">
+            <img src="manicure.png" alt="Imagen 3">
+            <img src="reparacion.png" alt="Imagen 4">
+        </div>
+    </div>
+
+    <section class="services">
+        <h2>Ofrecemos los siguientes servicios:</h2>
+        <div class="section">
+            <div class="card" onclick="window.location.href='estetica.html'">
+                <h3>Stylo's Estética</h3>
+                <p>Cortes, efectos de color, depilaciones y más.</p>
+            </div>
+            <div class="card" onclick="window.location.href='manicure.html'">
+                <h3>Stylo's Manicure</h3>
+                <p>Manicure, pedicure, pestañas y más.</p>
+            </div>
+            <div class="card" onclick="window.location.href='reparacion.html'">
+                <h3>Stylo's Reparación</h3>
+                <p>Reparación y desbloqueo de teléfonos.</p>
+            </div>
+            <div class="card" onclick="window.location.href='nieves.html'">
+                <h3>Stylo's Nieves</h3>
+                <p>Deliciosas nieves disponibles cada día.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const carouselImages = document.querySelector('.carousel-images');
+        const images = document.querySelectorAll('.carousel-images img');
+        let index = 0;
+
+        function showImage() {
+            index = (index + 1) % images.length;
+            carouselImages.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        setInterval(showImage, 3000); // Cambia cada 3 segundos
+    </script>
+</body>
+</html>
